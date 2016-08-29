@@ -25,7 +25,9 @@ local screen = "main"
 local rside = 3
 
 if not component.isAvailable("reactor") then
-print("нет компонента reactor")
+print("Не подключен ядерный реактор")
+elseif not component.isAvailable("redstone") then
+print("Нет редстоун карты")
 os.exit()
 end
 if component.isAvailable("batbox") then
@@ -159,9 +161,9 @@ function main()
   event.listen("touch",listen)
   while running do
     if config.auto_power.enabled == true then
-      if (math.modf((reactor.getHeat()*100)/reactor.getMaxHeat())/100)<config.auto_power.start_percent then
+      if (math.modf((reactor.getHeat()*100)/reactor.getMaxHeat()))<=config.auto_power.start_percent then
         rs.setOutput(rside, 15)
-      elseif (math.modf((reactor.getHeat()*100)/reactor.getMaxHeat())/100)>config.auto_power.stop_percent then
+      elseif (math.modf((reactor.getHeat()*100)/reactor.getMaxHeat()))>=config.auto_power.stop_percent then
         rs.setOutput(rside, 0)
       end
     end

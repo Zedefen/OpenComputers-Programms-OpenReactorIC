@@ -1,4 +1,5 @@
-# OpenComputers-Programms-OpenReactorIC
+OpenReactor IC2 v2
+
 Программа для управления ядерным реактором из мода IC2
 Является переписанной программой для мода BigReactors (оригинальная тема https://oc.cil.li/index.php?/topic/501-openreactors/)
 
